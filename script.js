@@ -1,3 +1,29 @@
+// First part ----- Buttons!!
+
+const restaurants = [
+    "Pet jezera Bijeljina", "Fakultet Minhen", "Kaldrma Banja Luka", "Gral Derventa", "Hotel Park Doboj", 
+    "Motel Rodjo Teslic", "Panorama Doboj", "Piramida Jelah", "Vinarija Pajic Brcko", "Hotel Terme Ozren"
+];
+let selectedRestaurant = null;
+
+const buttonsDiv = document.getElementById("buttons");
+restaurants.forEach(name => {
+    const btn = document.createElement("button");
+    btn.innerText = name;
+    btn.addEventListener('click', ()=>{
+        document.querySelectorAll("#buttons button").forEach(b => b.classList.remove("selected"));
+        btn.classList.add("selected");
+        selectedRestaurant = name;
+        console.log(selectedRestaurant);
+    });
+    buttonsDiv.appendChild(btn);
+});
+
+
+
+
+// Second part----- Calendar!!
+
 let updateMonthAndYear = (currentMonth, currentYear, move) => {
     let totalMonths = currentMonth + move;
     
@@ -90,11 +116,39 @@ function fillTheCalendar(weeks){
         let tr = document.createElement('tr');
         for (let day of week) {
             let td = document.createElement('td');
-            td.innerText = day;
+            td.innerHTML = `<div class="broj">${day}</div>`;
             tr.appendChild(td);
         }
         document.querySelector('.calendar_body').appendChild(tr);
     }
+}
+
+let book = document.getElementById("book");
+book.addEventListener('click', () => {
+    if (!selectedRestaurant) {
+        alert("Please select a restaurant first!");
+        return;
+    }
+    document.querySelector(".close").style.display = "block";
+    document.querySelector(".calendar").style.display = "block";
+
+    let td = document.querySelectorAll('td');
+    console.log(td);
+
+    td.forEach(x => {
+        x.addEventListener('click', () => {
+            // Check if the cell content is a valid number
+            if (!isNaN(x.innerText) && x.innerText.trim() !== "") {
+                x.innerHTML += `<div class="biljeska">${selectedRestaurant}</div>`;
+            }
+        });
+    });
+});
+
+
+function closeCalendar() {
+    document.querySelector(".calendar").style.display = "none";
+    document.querySelector(".close").style.display = "none";
 }
 
 window.addEventListener('load', main(0));

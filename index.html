@@ -7,29 +7,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="relative">
-        <table class="calendar">
-            <thead class="calendar_header">
-                <tr class="space-between">
-                    <th colspan="2" class="next-previous left">
-                        <div class="button previous">Previous</div>
-                    </th>
-                    <th colspan="3" class="calendar_title">February 2025.</th>
-                    <th colspan="2" class="next-previous right">
-                        <div class="button next">Next</div>
-                    </th>
-                </tr>
-                <tr>
-                    <th>Mon
-                    <th>Tue
-                    <th>Wed
-                    <th>Thu
-                    <th>Fri
-                    <th>Sat
-                    <th>Sun
-            <tbody class="calendar_body">
-        </table>
-    </div>
+        <div class="container first">
+            <h3>Select a Restaurant</h3>
+            <div id="buttons"></div>
+            <button id="book">Book</button>
+        </div>
+        <div class="relative">
+            <span class="close">X</span>
+            <table class="calendar second">
+                <thead class="calendar_header">
+                    <tr class="space-between">
+                        <th colspan="2" class="next-previous left">
+                            <div class="button previous">Previous</div>
+                        </th>
+                        <th colspan="3" class="calendar_title">February 2025.</th>
+                        <th colspan="2" class="next-previous right">
+                            <div class="button next">Next</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Mon
+                        <th>Tue
+                        <th>Wed
+                        <th>Thu
+                        <th>Fri
+                        <th>Sat
+                        <th>Sun
+                <tbody class="calendar_body">
+            </table>
+        </div>
     <script src="script.js"></script>
 </body>
 </html>
