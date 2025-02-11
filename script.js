@@ -2,7 +2,7 @@
 
 const restaurants = [
     "Pet jezera Bijeljina", "Fakultet Minhen", "Kaldrma Banja Luka", "Gral Derventa", "Hotel Park Doboj", 
-    "Motel Rodjo Teslic", "Panorama Doboj", "Piramida Jelah", "Vinarija Pajic Brcko", "Hotel Terme Ozren", "Kafana Kostajnica"
+    "Motel Rodjo Teslic", "Panorama Doboj", "Piramida Jelah", "Vinarija Pajic Brcko", "Hotel Terme Ozren",
 ];
 let selectedRestaurant = null;
 let mjesec = '';
