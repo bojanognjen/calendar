@@ -1,7 +1,7 @@
 // First part ----- Buttons!!
 
 const restaurants = [
-    "Pet jezera Bijeljina", "Fakultet Minhen", "Kaldrma Banja Luka", "Gral Derventa", "Hotel Park Doboj", 
+    "Pet jezera Bijeljina", "Fakultet Minhen", "Kaldrma BL", "Gral Derventa", "Hotel Park Doboj", 
     "Motel Rodjo Teslic", "Panorama Doboj", "Piramida Jelah", "Vinarija Pajic Brcko", "Hotel Terme Ozren",
 ];
 let selectedRestaurant = null;
