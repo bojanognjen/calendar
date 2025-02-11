@@ -5,6 +5,8 @@ const restaurants = [
     "Motel Rodjo Teslic", "Panorama Doboj", "Piramida Jelah", "Vinarija Pajic Brcko", "Hotel Terme Ozren"
 ];
 let selectedRestaurant = null;
+let mjesec = '';
+let godina = '';
 
 const buttonsDiv = document.getElementById("buttons");
 restaurants.forEach(name => {
@@ -14,7 +16,6 @@ restaurants.forEach(name => {
         document.querySelectorAll("#buttons button").forEach(b => b.classList.remove("selected"));
         btn.classList.add("selected");
         selectedRestaurant = name;
-        console.log(selectedRestaurant);
     });
     buttonsDiv.appendChild(btn);
 });
@@ -106,8 +107,10 @@ function makeaTemplate(year, month) {
     for (let day of days) {
         weeks.push(days.splice(0,7));
     }
-
+    mjesec = month;
+    godina = year;
     fillTheCalendar(weeks);
+
 }
 
 function fillTheCalendar(weeks){
@@ -118,6 +121,9 @@ function fillTheCalendar(weeks){
             let td = document.createElement('td');
             td.innerHTML = `<div class="broj">${day}</div>`;
             tr.appendChild(td);
+            if (localStorage.getItem(`${day}.${mjesec}.${godina}.`)) {
+                td.innerHTML += `<div class="biljeska">${selectedRestaurant}</div>`;
+            }
         }
         document.querySelector('.calendar_body').appendChild(tr);
     }
@@ -133,16 +139,22 @@ book.addEventListener('click', () => {
     document.querySelector(".calendar").style.display = "block";
 
     let td = document.querySelectorAll('td');
-    console.log(td);
 
     td.forEach(x => {
         x.addEventListener('click', () => {
             // Check if the cell content is a valid number
             if (!isNaN(x.innerText) && x.innerText.trim() !== "") {
                 x.innerHTML += `<div class="biljeska">${selectedRestaurant}</div>`;
+                let datum = x.firstElementChild.innerText;
+                let key = `${datum}.${mjesec}.${godina}.`;
+                localStorage.setItem(key, selectedRestaurant);
             }
         });
     });
+});
+
+document.querySelector('.close').addEventListener('click',()=> {
+    closeCalendar();
 });
 
 
