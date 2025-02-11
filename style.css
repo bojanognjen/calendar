@@ -1,14 +1,63 @@
 body {
     font-family: sans-serif;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vw;
+    align-items: center;
+}
+.container {
+    background-color: white;
+    position: relative;
+    width: 90%;
+    margin: 3rem;
+    padding: 1rem;
+    text-align: center;
 }
 
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 150px);
+    grid-template-rows: repeat(auto-fill, 70pxs);
+    gap: 10px;
+    padding: 10px;
+    place-content: center;
+}
 
+.buttons > * {
+    padding: 3.6px;
+    border-radius: 1rem;
+    background-color: #dc0101;
+    border: 2px solid #560a0a;
+    color: #fff;
+
+}
+
+.container::before{
+        content: "";
+        position: absolute;
+        top: -1rem;
+        left: -1rem;
+        display: block;
+        background-color: #ffffff;
+        background-image: linear-gradient(45deg, transparent 49%,
+            red 50%, transparent 51%);
+        background-size: 5px 5px;
+        right: -1rem;
+        bottom: -1rem;
+        z-index: -1;
+}
+
+.container h3 {
+    color: #560a0a;
+}
 
 .relative {
     position: relative;
     display: inline-block;
     width: max-content;
     height: max-content;
+    text-align: center;
 }
 
 .close {
@@ -32,7 +81,6 @@ body {
     border-radius: 1rem;
     padding: 10px;
     display: inline-block;
-    width: 60%;
     text-align: center;
     cursor: pointer;
 }
@@ -75,5 +123,14 @@ body {
 
 .biljeska {
     font-size: 9px;
+}
+
+.clear {
+    padding: 6px;
+    border-radius: 1rem;
+    background-color: #dc0101;
+    border: 2px solid #560a0a;
+    color: #fff;
+    margin-top: 1.5rem;
 }
 

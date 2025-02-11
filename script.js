@@ -8,13 +8,16 @@ let selectedRestaurant = null;
 let mjesec = '';
 let godina = '';
 
-const buttonsDiv = document.getElementById("buttons");
+const buttonsDiv = document.querySelector(".buttons");
 restaurants.forEach(name => {
     const btn = document.createElement("button");
     btn.innerText = name;
+    btn.classList.add("btn");
+    btn.classList.add("btn-outline-danger");
     btn.addEventListener('click', ()=>{
-        document.querySelectorAll("#buttons button").forEach(b => b.classList.remove("selected"));
+        document.querySelectorAll(".buttons button").forEach(b => b.classList.remove("selected"));
         btn.classList.add("selected");
+
         selectedRestaurant = name;
     });
     buttonsDiv.appendChild(btn);
@@ -162,5 +165,10 @@ function closeCalendar() {
     document.querySelector(".calendar").style.display = "none";
     document.querySelector(".close").style.display = "none";
 }
+
+let clear = document.querySelector('.clear');
+clear.addEventListener('click',()=> {
+    localStorage.clear();
+});
 
 window.addEventListener('load', main(0));
