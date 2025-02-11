@@ -9,6 +9,9 @@ let mjesec = '';
 let godina = '';
 
 const buttonsDiv = document.querySelector(".buttons");
+
+// Loop through the list of restaurants and create a button for each one
+
 restaurants.forEach(name => {
     const btn = document.createElement("button");
     btn.innerText = name;
@@ -28,6 +31,8 @@ restaurants.forEach(name => {
 
 // Second part----- Calendar!!
 
+// Function to update the month and year when navigating through the calendar
+
 let updateMonthAndYear = (currentMonth, currentYear, move) => {
     let totalMonths = currentMonth + move;
     
@@ -42,11 +47,15 @@ let updateMonthAndYear = (currentMonth, currentYear, move) => {
 };
 
 let move = 0;
+
+// Event listener for 'next' button to move forward one month
+
 let next = document.querySelector('.next');
 next.addEventListener('click', ()=> {
     move++;
     main(move);
 })
+// ... and 'previous' button
 
 let previous = document.querySelector('.previous');
 previous.addEventListener('click', ()=> {
@@ -54,6 +63,7 @@ previous.addEventListener('click', ()=> {
     main(move);
 })
 
+// Main function to display the calendar for the given month and year
 
 function main(move) {
     let date = new Date();
@@ -71,6 +81,8 @@ function main(move) {
         }
     }
 }
+
+// Function to create the calendar template with days of the month
 
 function makeaTemplate(year, month) {
     let months = ['January', 'February', 'March', 'April',
@@ -116,6 +128,8 @@ function makeaTemplate(year, month) {
 
 }
 
+// Function to fill the calendar with the days and add notes (if any)
+
 function fillTheCalendar(weeks){
     document.querySelector('.calendar_body').innerHTML = '';
     for (let week of weeks) {
@@ -133,6 +147,9 @@ function fillTheCalendar(weeks){
 }
 
 let book = document.getElementById("book");
+
+// Event listener for the 'book' button
+
 book.addEventListener('click', () => {
     if (!selectedRestaurant) {
         alert("Please select a restaurant first!");
@@ -142,6 +159,8 @@ book.addEventListener('click', () => {
     document.querySelector(".calendar").style.display = "block";
 
     let td = document.querySelectorAll('td');
+
+    // Add event listeners to all calendar days
 
     td.forEach(x => {
         x.addEventListener('click', () => {
@@ -160,11 +179,14 @@ document.querySelector('.close').addEventListener('click',()=> {
     closeCalendar();
 });
 
+// Event listener for the 'close' button to close the calendar
 
 function closeCalendar() {
     document.querySelector(".calendar").style.display = "none";
     document.querySelector(".close").style.display = "none";
 }
+
+// Event listener for the 'clear' button to clear a local storage
 
 let clear = document.querySelector('.clear');
 clear.addEventListener('click',()=> {
