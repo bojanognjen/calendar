@@ -125,7 +125,7 @@ function fillTheCalendar(weeks){
             td.innerHTML = `<div class="broj">${day}</div>`;
             tr.appendChild(td);
             if (localStorage.getItem(`${day}.${mjesec}.${godina}.`)) {
-                td.innerHTML += `<div class="biljeska">${selectedRestaurant}</div>`;
+                td.innerHTML += `<div class="biljeska">${localStorage.getItem(`${day}.${mjesec}.${godina}.`)}</div>`;
             }
         }
         document.querySelector('.calendar_body').appendChild(tr);
